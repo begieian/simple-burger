@@ -11,7 +11,8 @@ const controls = [
 
 const BuildControls = (props) => {
   return (
-    <div className={ classes.BuildControls }>
+    <div className={classes.BuildControls}>
+      <p>Current Price: <strong>{props.price.toFixed(2)} PHP</strong></p>
       { controls.map(ctrl => {
         return (
           <BuildControl
@@ -23,6 +24,10 @@ const BuildControls = (props) => {
           />
         )
       }) }
+      <button
+        className={classes.OrderButton}
+        disabled={!props.purchaseable}
+      >ORDER NOW</button>
     </div>
   )
 }

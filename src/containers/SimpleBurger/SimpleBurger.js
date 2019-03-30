@@ -17,7 +17,21 @@ class SimpleBurger extends Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 100.00
+    totalPrice: 10.00,
+    purchaseable: false
+  }
+
+  updatePurchaseState = (ingredients) => {
+    const sum = Object.keys(ingredients)
+      .map(igKey => {
+        return ingredients[igKey]
+      })
+      .reduce((acc, el) => {
+        return acc + el
+      }, 0);
+    this.setState({
+      purchaseable: sum > 0
+    });
   }
 
   addIngredientHandler = (type) => {
@@ -34,6 +48,7 @@ class SimpleBurger extends Component {
       totalPrice: newPrice,
       ingredients: updatedIngredients
     });
+    this.updatePurchaseState(updatedIngredients);
   }
 
   removeIngredientHandler = (type) => {
@@ -53,6 +68,7 @@ class SimpleBurger extends Component {
       totalPrice: newPrice,
       ingredients: updatedIngredients
     });
+    this.updatePurchaseState(updatedIngredients);
   }
 
   render() {
@@ -70,6 +86,8 @@ class SimpleBurger extends Component {
           ingredientAdded={this.addIngredientHandler}
           ingredientRemoved={this.removeIngredientHandler}
           disabled={disabledInfo}
+          purchaseable={this.state.purchaseable}
+          price={this.state.totalPrice}
         />
       </>
     )
