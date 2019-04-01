@@ -80,6 +80,12 @@ class SimpleBurger extends Component {
     });
   }
 
+  purchaseCancelHandler = () => {
+    this.setState({
+      purchasing: false
+    })
+  }
+
   render() {
     const disabledInfo = {
       ...this.state.ingredients
@@ -90,7 +96,10 @@ class SimpleBurger extends Component {
 
     return (
       <>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          modalClicked={this.purchaseCancelHandler}
+        >
           <OrderSummary
             ingredients={this.state.ingredients}
           />
