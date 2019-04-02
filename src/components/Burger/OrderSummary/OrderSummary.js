@@ -1,10 +1,11 @@
 import React from 'react';
+import Button from '../../UI/Button/Button';
 
 const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients)
     .map(igKey => {
       return (
-        <li ley={igKey}>
+        <li key={igKey}>
           <span
             style={{textTransform: 'capitalize'}}
           >{igKey}
@@ -20,9 +21,16 @@ const OrderSummary = (props) => {
       <ul>
         {ingredientSummary}
       </ul>
+      <p><strong>Total Price: {props.price.toFixed(2)} PHP</strong></p>
       <p>Continue to checkout?</p>
-      <button>CANCEL</button>
-      <button>CONTINUE</button>
+      <Button
+        btnType='Danger'
+        clicked={props.cancelOrder}
+      >CANCEL</Button>
+      <Button
+        btnType='Success'
+        clicked={props.continueOrder}
+      >CONTINUE</Button>
     </>
   )
 }

@@ -86,6 +86,10 @@ class SimpleBurger extends Component {
     })
   }
 
+  purchaseContinueHandler = () => {
+    alert('You may continue!')
+  }
+
   render() {
     const disabledInfo = {
       ...this.state.ingredients
@@ -102,6 +106,9 @@ class SimpleBurger extends Component {
         >
           <OrderSummary
             ingredients={this.state.ingredients}
+            price={this.state.totalPrice}
+            cancelOrder={this.purchaseCancelHandler}
+            continueOrder={this.purchaseContinueHandler}
           />
         </Modal>
         <Burger ingredients={this.state.ingredients} />

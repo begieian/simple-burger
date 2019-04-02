@@ -41,7 +41,8 @@
 }
 
 .BuildControl .More {
-  background-color: #8F5E1E;
+  /* background-color: #8F5E1E; */
+  background-color: #700000;
   color: white;
 }
 
@@ -51,6 +52,7 @@
 }
 
 .BuildControl .More:hover,.BuildControl .More:active {
-  background-color: #99703F;
+  /* background-color: #99703F; */
+  background-color: #af0000;
   color: white;
 }
