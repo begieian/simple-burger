@@ -1,4 +1,2 @@
 # simple-burger
-React Burger App
-
-Simple responsive application using React and Redux.
+Simple responsive application using React and Redux for front-end and Firebase for back-end.
